@@ -265,6 +265,19 @@
         </div>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFeedbacks"
+            aria-expanded="true" aria-controls="collapseFeedbacks">
+            <i class="fa fa-fw fa-user"></i>
+            <span>Feedbacks</span>
+        </a>
+        <div id="collapseFeedbacks" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Feedbacks Components:</h6>
+                <a class="collapse-item" href="">My Feedbacks</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseChangePassword"
             aria-expanded="true" aria-controls="collapseChangePassword">
             <i class="fas fa-fw fa-user-tie"></i>
