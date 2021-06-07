@@ -24,19 +24,23 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Birthday :</strong> <span>10 Jan 1997</span>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Birthday :</strong>
+                                <span>{{Auth::user()->dob}}</span>
                             </li>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                                <span>{{Auth::user()->contact}}</span>
                             </li>
-                            <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong>
+                                <span>{{Auth::user()->address}}</span>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
+                                <span>{{Auth::user()->degree}}</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                                <span>iutsabpokharel@gmail.com</span></li>
+                                <span>{{Auth::user()->email}}</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span>
                             </li>
                         </ul>
@@ -688,7 +692,7 @@
                 <div class="info-box">
                     <i class="bx bx-map"></i>
                     <h3>My Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                    <p>{{Auth::user()->address}}</p>
                 </div>
             </div>
 
@@ -710,14 +714,14 @@
                 <div class="info-box">
                     <i class="bx bx-envelope"></i>
                     <h3>Email Me</h3>
-                    <p>contact@example.com</p>
+                    <p>{{Auth::user()->email}}</p>
                 </div>
             </div>
             <div class="col-md-6 mt-4 d-flex align-items-stretch">
                 <div class="info-box">
                     <i class="bx bx-phone-call"></i>
                     <h3>Call Me</h3>
-                    <p>+1 5589 55488 55</p>
+                    <p>{{Auth::user()->contact}}</p>
                 </div>
             </div>
         </div>

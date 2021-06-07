@@ -16,7 +16,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -39,8 +39,8 @@
         <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Components:</h6>
-                <a class="collapse-item" href="">All User</a>
-                <a class="collapse-item" href="">Add User</a>
+                <a class="collapse-item" href="{{route('user.index')}}">All User</a>
+                <a class="collapse-item" href="{{route('user.create')}}">Add User</a>
             </div>
         </div>
     </li>
@@ -53,7 +53,8 @@
         <div id="collapseRoles" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Role Components:</h6>
-                <a class="collapse-item" href="">All Role</a>
+                <a class="collapse-item" href="{{route('role.index')}}">All Role</a>
+                <a class="collapse-item" href="{{route('role.create')}}">Add Role</a>
             </div>
         </div>
     </li>
@@ -71,7 +72,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAbout" aria-expanded="true"
             aria-controls="collapseAbout">
-            <i class="fa fa-fw fa-user"></i>
+            <i class="fa fa-fw fa-info"></i>
             <span>About</span>
         </a>
         <div id="collapseAbout" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
