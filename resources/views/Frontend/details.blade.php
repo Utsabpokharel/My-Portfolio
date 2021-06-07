@@ -1,7 +1,6 @@
 @include('Frontend.Layout.head')
 @include('Frontend.Layout.footer')
 @yield('head')
-Hello
 <main id="main">
 
     <!-- ======= Portfolio Details ======= -->

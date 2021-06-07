@@ -14,7 +14,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('Backend.Role.view', compact('roles'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.Role.add');
     }
 
     /**
@@ -35,7 +36,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:roles',
+            'description' => 'required',
+        ]);
+
+        $data = $request->all();
+        $user = Role::create($data);
+        return redirect()->route('role.index')->with('success', 'Roles added sucessfully');
     }
 
     /**
@@ -57,7 +65,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        $role = Role::findorfail($role);
+        return view('Admin.Role.edit', compact('role'));
     }
 
     /**
@@ -69,7 +78,20 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $role = Role::findorfail($role);
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        $role->name = $request->name;
+        $role->description = $request->description;
+        $update = $role->save();
+        // dd($update);
+        if ($update) {
+            return redirect()->route('role.index')->with('success', 'Roles updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'Some error occured while updating.');
+        }
     }
 
     /**
@@ -80,6 +102,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role = Role::find($role);
+        $role->delete();
+        return redirect()->route('role.index')->with('warning', 'Deleted Successfully');
     }
 }

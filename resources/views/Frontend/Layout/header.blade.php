@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <h1 style="margin-top: 10px"><a href="">Utsab Pokharel</a></h1>
+                <h1 style="margin-top: 10px"><a href="">{{Auth::user()->name}}</a></h1>
             </div>
             <div class="col-md-5">
                 <nav id="navbar" class="navbar mt-3">
