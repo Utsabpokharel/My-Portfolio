@@ -1,0 +1,10 @@
+@include('Backend.Layout.head')
+@include('Backend.Layout.sidebar')
+@include('Backend.Layout.header')
+@include('Backend.Layout.footer')
+
+@yield('head')
+@yield('sidebar')
+@yield('header')
+@yield('content')
+@yield('footer')
