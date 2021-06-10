@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -40,4 +41,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::delete('/user/destroy', [UserController::class, 'destroy'])->name('user.destroy');
     //roles
     Route::resource('role', RoleController::class);
+    //about
+    Route::get('/about', [AboutController::class, 'create'])->name('about');
+    Route::post('/about/store', [AboutController::class, 'store'])->name('about.store');
+    Route::get('/about/edit/{id}', [AboutController::class, 'edit'])->name('about.edit');
+    Route::put('/about/update/{id}', [AboutController::class, 'update'])->name('about.update');
+    //homepage
+    Route::get('/home', [HomePageController::class, 'create'])->name('home');
+    Route::post('/home/store', [HomePageController::class, 'store'])->name('home.store');
+    Route::get('/home/edit/{id}', [HomePageController::class, 'edit'])->name('home.edit');
+    Route::put('/home/update/{id}', [HomePageController::class, 'update'])->name('home.update');
+    //Skills
+    Route::resource('skill', SkillController::class);
 });

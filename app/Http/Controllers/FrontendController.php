@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\HomePage;
+use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +14,10 @@ class FrontendController extends Controller
     public function index()
     {
         $user = User::orderBy('id', 'desc')->first();
-        return view('Frontend.Layout.master', compact('user'));
+        $about = About::first();
+        $home = HomePage::first();
+        $skill = Skill::all();
+        return view('Frontend.Layout.master', compact('user', 'about', 'home', 'skill'));
     }
 
     public function login(Request $request)

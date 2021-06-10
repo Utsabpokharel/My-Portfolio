@@ -1,9 +1,7 @@
+@section('title','Login')
 @include('Backend.Layout.head')
 @include('Backend.Layout.footer')
 @yield('head')
-
-@section('title','Login')
-
 <div class="container">
 
     <!-- Outer Row -->
@@ -14,7 +12,7 @@
                     <!-- Nested Row within Card Body -->
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Welcome Back !</h1>
                         </div>
                         <form class="user" method="post" action="{{route('login')}}">
                             @csrf
