@@ -63,10 +63,10 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Request $request, $role)
     {
         $role = Role::findorfail($role);
-        return view('Admin.Role.edit', compact('role'));
+        return view('Backend.Role.edit', compact('role'));
     }
 
     /**
@@ -76,7 +76,7 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $role)
     {
         $role = Role::findorfail($role);
         $request->validate([
@@ -100,7 +100,7 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($role)
     {
         $role = Role::find($role);
         $role->delete();

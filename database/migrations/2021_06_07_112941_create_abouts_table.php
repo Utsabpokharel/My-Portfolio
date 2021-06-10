@@ -19,6 +19,7 @@ class CreateAboutsTable extends Migration
             $table->string('profession');
             $table->longText('short_description');
             $table->longText('about');
+            $table->string('freelancing');
             $table->timestamps();
         });
     }

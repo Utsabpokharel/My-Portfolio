@@ -17,7 +17,6 @@ class CreateSkillsTable extends Migration
             $table->id();
             $table->string('skill_name');
             $table->string('ability');
-            $table->string('freelancing');
             $table->timestamps();
         });
     }

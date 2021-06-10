@@ -78,7 +78,7 @@
         <div id="collapseAbout" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">About Components:</h6>
-                <a class="collapse-item" href="">About Me</a>
+                <a class="collapse-item" href="{{route('about')}}">About Me</a>
             </div>
         </div>
     </li>
@@ -93,8 +93,8 @@
         <div id="collapseSkills" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Skills Components:</h6>
-                <a class="collapse-item" href="">My Skills</a>
-                <a class="collapse-item" href="">Add Skills</a>
+                <a class="collapse-item" href="{{route('skill.index')}}">My Skills</a>
+                <a class="collapse-item" href="{{route('skill.create')}}">Add Skills</a>
             </div>
         </div>
     </li>
@@ -216,7 +216,7 @@
         <div id="collapseHomePage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">HomePage Components:</h6>
-                <a class="collapse-item" href="">My HomePage</a>
+                <a class="collapse-item" href="{{route('home')}}">My HomePage</a>
             </div>
         </div>
     </li>

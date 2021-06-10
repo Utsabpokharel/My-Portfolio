@@ -14,7 +14,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skill = Skill::orderBy('id', 'desc')->get();
+        return view('Backend.Skills.view', compact('skill'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.Skills.add');
     }
 
     /**
@@ -35,7 +36,14 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'skill_name' => 'required',
+            'ability' => 'required',
+        ]);
+
+        $data = $request->all();
+        $skill = Skill::create($data);
+        return redirect()->route('skill.index')->with('success', 'New Skill added sucessfully');
     }
 
     /**
@@ -55,9 +63,10 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function edit(Skill $skill)
+    public function edit(Request $request, $id)
     {
-        //
+        $skill = Skill::findorfail($id);
+        return view('Backend.Skills.edit', compact('skill'));
     }
 
     /**
@@ -67,9 +76,23 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request, $skill)
     {
-        //
+        $skill = Skill::findorfail($skill);
+        $request->validate([
+            'skill_name' => 'required',
+            'ability' => 'required',
+        ]);
+
+        $skill->skill_name = $request->skill_name;
+        $skill->ability = $request->ability;
+        $update = $skill->save();
+        // dd($update);
+        if ($update) {
+            return redirect()->route('skill.index')->with('success', 'skills updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'Some error occured while updating.');
+        }
     }
 
     /**
@@ -78,8 +101,10 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Skill $skill)
+    public function destroy($skill)
     {
-        //
+        $skill = Skill::find($skill);
+        $skill->delete();
+        return redirect()->route('skill.index')->with('warning', 'Deleted Successfully');
     }
 }

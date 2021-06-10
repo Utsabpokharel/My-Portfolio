@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <h1 style="margin-top: 10px"><a href="">{{Auth::user()->name}}</a></h1>
+                <h1 style="margin-top: 10px"><a href="">{{$user->name}}</a></h1>
             </div>
             <div class="col-md-5">
                 <nav id="navbar" class="navbar mt-3">
@@ -27,11 +27,11 @@
                 <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
-
-        <h2 class="text-secondary text-center" style="margin:20% 0 0 50%">I'm a passionate Software Developer from
-            Nepal.
-
-        </h2>
+        @if ($home != [])
+        <h2 class="text-secondary text-center" style="margin:20% 0 0 50%">{{$home->description}}</h2>
+        @else
+        <h2 class="text-secondary text-center" style="margin:20% 0 0 50%">Update here...</h2>
+        @endif
     </div>
 </header>
 <!-- End Header -->
