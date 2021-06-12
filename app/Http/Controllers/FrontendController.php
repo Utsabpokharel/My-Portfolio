@@ -38,6 +38,9 @@ class FrontendController extends Controller
         $app = Portfolio::where('category', 'App')->get();
         $web = Portfolio::where('category', 'Web')->get();
         $other = Portfolio::where('category', 'Others')->get();
+        $skill_count = Skill::count();
+        $project_count = Portfolio::count();
+        $training_count = Training::count();
         // dd($app);
         return view('Frontend.Layout.master', compact(
             'user',
@@ -56,6 +59,9 @@ class FrontendController extends Controller
             'app',
             'web',
             'other',
+            'skill_count',
+            'project_count',
+            'training_count',
         ));
     }
 
