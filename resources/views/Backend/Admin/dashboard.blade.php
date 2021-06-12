@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                <i class="fas fa-cog fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-building fa-2x text-gray-300"></i>
+                                <i class="fas fa-book-reader fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -91,7 +91,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$testimonial}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-walking fa-2x text-gray-300"></i>
+                                <i class="fas fa-user-tie fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -113,7 +113,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$experience}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                                <i class="fas fa-book-open fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -132,7 +132,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$training}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-file fa-2x text-gray-300"></i>
+                                <i class="fas fa-certificate fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -152,7 +152,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$service}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-file fa-2x text-gray-300"></i>
+                                <i class="fas fa-cogs fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -171,7 +171,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$project}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-laptop-code fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -192,7 +192,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$feedback}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-user fa-2x text-gray-300"></i>
+                                <i class="fas fa-file fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                <i class="fas fa-address-card fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-building fa-2x text-gray-300"></i>
+                                <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
@@ -259,7 +259,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$role}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-walking fa-2x text-gray-300"></i>
+                                <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </a>

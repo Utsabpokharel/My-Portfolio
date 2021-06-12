@@ -87,7 +87,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkills" aria-expanded="true"
             aria-controls="collapseSkills">
-            <i class="fas fa-fw fa-user-circle"></i>
+            <i class="fas fa-fw fa-cog"></i>
             <span>Skills</span>
         </a>
         <div id="collapseSkills" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -102,7 +102,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInterest"
             aria-expanded="true" aria-controls="collapseInterest">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-book-reader"></i>
             <span>Interests</span>
         </a>
         <div id="collapseInterest" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -141,7 +141,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSummary"
             aria-expanded="true" aria-controls="collapseSummary">
-            <i class="fa fa-fw fa-user"></i>
+            <i class="fa fa-fw fa-file"></i>
             <span>Summary</span>
         </a>
         <div id="collapseSummary" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -156,7 +156,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEducations"
             aria-expanded="true" aria-controls="collapseEducations">
-            <i class="fas fa-fw fa-user-circle"></i>
+            <i class="fas fa-fw fa-user-graduate"></i>
             <span>Educations</span>
         </a>
         <div id="collapseEducations" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -171,7 +171,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExperiences"
             aria-expanded="true" aria-controls="collapseExperiences">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-book-open"></i>
             <span>Experiences</span>
         </a>
         <div id="collapseExperiences" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -185,7 +185,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTrainings"
             aria-expanded="true" aria-controls="collapseTrainings">
-            <i class="fas fa-fw fa-user-tie"></i>
+            <i class="fas fa-fw fa-certificate"></i>
             <span>Trainings</span>
         </a>
         <div id="collapseTrainings" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -225,7 +225,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServices"
             aria-expanded="true" aria-controls="collapseServices">
-            <i class="fas fa-fw fa-user-circle"></i>
+            <i class="fas fa-fw fa-cogs"></i>
             <span>Services</span>
         </a>
         <div id="collapseServices" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -240,7 +240,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePortfolio"
             aria-expanded="true" aria-controls="collapsePortfolio">
-            <i class="fas fa-fw fa-building"></i>
+            <i class="fas fa-fw fa-laptop-code"></i>
             <span>Portfolio</span>
         </a>
         <div id="collapsePortfolio" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -254,7 +254,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSocialAccount"
             aria-expanded="true" aria-controls="collapseSocialAccount">
-            <i class="fas fa-fw fa-user-tie"></i>
+            <i class="fas fa-fw fa-address-card"></i>
             <span>Social Accounts</span>
         </a>
         <div id="collapseSocialAccount" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -268,7 +268,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFeedbacks"
             aria-expanded="true" aria-controls="collapseFeedbacks">
-            <i class="fa fa-fw fa-user"></i>
+            <i class="fa fa-fw fa-file"></i>
             <span>Feedbacks</span>
         </a>
         <div id="collapseFeedbacks" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -281,7 +281,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseChangePassword"
             aria-expanded="true" aria-controls="collapseChangePassword">
-            <i class="fas fa-fw fa-user-tie"></i>
+            <i class="fas fa-fw fa-cogs"></i>
             <span>Password Settings</span>
         </a>
         <div id="collapseChangePassword" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
