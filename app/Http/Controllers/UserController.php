@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewUser;
 use App\Models\Role;
 use App\Models\User;
+use App\Notifications\NewUserNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -23,7 +27,7 @@ class UserController extends Controller
         return view('Backend.User.add', compact('role'));
     }
     //store
-    public function store(Request $request)
+    public function store(Request $request, User $thread)
     {
         $request->validate([
             'name' => 'required',
@@ -44,6 +48,17 @@ class UserController extends Controller
         $password = Hash::make($request->password);
         $data['password'] = $password;
         $user = User::create($data);
+        //mail
+        Mail::to($user->email)->send(new NewUser());
+        //notification
+        $usr = User::where('role', '1')->get();
+        $thread = [
+            'added_to' => $request->name,
+            'added_by' => Auth::user()->name,
+        ];
+        foreach ($usr as $user) {
+            $user->notify(new NewUserNotification($thread));
+        }
         return redirect()->route('user.index')->with('success', 'User added sucessfully');
     }
     //details

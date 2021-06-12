@@ -35,6 +35,16 @@ Route::post('/contact/store', [FeedbackController::class, 'store'])->name('feedb
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    //notifications
+    Route::get('/notification', [DashboardController::class, 'notifications'])->name('notification');
+    Route::get('/Feedbackmarkasread', function () {
+        auth()->user()->unreadNotifications->where('type', 'App\Notifications\FeedbackNotification')->markAsRead();
+        return redirect()->route('feedback.index');
+    })->name('Feedbackmarkasread');
+    Route::get('/Usermarkasread', function () {
+        auth()->user()->unreadNotifications->where('type', 'App\Notifications\NewUserNotification')->markAsRead();
+        return redirect()->route('user.index');
+    })->name('Usermarkasread');
     //user
     Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');

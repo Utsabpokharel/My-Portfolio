@@ -39,7 +39,7 @@
                             <input type="file" name="background_image" placeholder="Enter background_image"
                                 accept="image/*" id="exampleInputUser"
                                 class="form-control   @error('background_image') is-invalid @enderror"
-                                value="{{old('background_image','')}}" />
+                                onchange="readURL(this);" value="{{old('background_image','')}}" />
                             <img src="{{asset('Backend/img/undraw_profile.svg')}}" alt="image" id="image-preview"
                                 width="150px">
                             @error('background_image')
@@ -100,7 +100,7 @@
                             <input type="file" name="background_image" placeholder="Enter background_image"
                                 accept="image/*" id="exampleInputUser"
                                 class="form-control   @error('background_image') is-invalid @enderror"
-                                value="{{old('background_image',$home->background_image)}}" />
+                                onchange="readURL(this);" value="{{old('background_image',$home->background_image)}}" />
                             <img src="{{asset('Uploads/Homepage/'.$home->background_image)}}" alt="image"
                                 id="image-preview" width="150px">
                             @error('background_image')
