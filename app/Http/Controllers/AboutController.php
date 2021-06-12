@@ -66,6 +66,24 @@ class AboutController extends Controller
         $about->short_description = $request->short_description;
         $about->profession = $request->profession;
         $about->freelancing = $request->freelancing;
+        if ($request->photo != '') {
+            $path = public_path() . '/Uploads/About/';
+
+            //code for remove old file
+            if ($about->photo != ''  && $about->photo != null) {
+                $file_old = $path . $about->photo;
+                unlink($file_old);
+            }
+
+            //upload new file
+            $file = $request->photo;
+            $filename = "About-" . time() . '.' . $file->getClientOriginalExtension();
+            $file->move($path, $filename);
+
+            //for update in table
+            // $employee->update(['file' => $filename]);
+        }
+        $about->photo = $filename;
         $update = $about->save();
         if ($update) {
             return redirect()->back()->with('success', 'About details updated successfully');

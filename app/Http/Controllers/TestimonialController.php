@@ -14,7 +14,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $testimonial = Testimonial::orderBy('id', 'desc')->get();
+        return view('Backend.Testimonials.view', compact('testimonial'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.Testimonials.add');
     }
 
     /**
@@ -35,7 +36,32 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'designation' => 'required',
+            'photo' => 'required | image',
+        ]);
+        $testimonial = new Testimonial([
+            'name' => $request->name,
+            'designation' => $request->designation,
+            'description' => $request->description,
+        ]);
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $name = "Testimonial-" . time() . '.' . $image->getClientOriginalExtension();
+            $image->move('Uploads/Testimonial/', $name);
+        }
+        $testimonial->photo = $name;
+
+        $data = $testimonial->save();
+
+
+        if ($data) {
+            return redirect()->route('testimonial.index')->with('success', 'Testimonial added successfully !!!');
+        } else {
+            return redirect()->back()->with('error', 'There occurred some problem , please try again after a while.');
+        }
     }
 
     /**
@@ -55,9 +81,10 @@ class TestimonialController extends Controller
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function edit(Testimonial $testimonial)
+    public function edit(Request $request, $id)
     {
-        //
+        $testimonial = Testimonial::findorfail($id);
+        return view('Backend.Testimonials.edit', compact('testimonial'));
     }
 
     /**
@@ -67,9 +94,42 @@ class TestimonialController extends Controller
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Request $request, $id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'designation' => 'required',
+        ]);
+        $testimonial->name = $request->name;
+        $testimonial->description = $request->description;
+        $testimonial->designation = $request->designation;
+        if ($request->photo != '') {
+            $path = public_path() . '/Uploads/Testimonial/';
+
+            //code for remove old file
+            if ($testimonial->photo != ''  && $testimonial->photo != null) {
+                $file_old = $path . $testimonial->photo;
+                unlink($file_old);
+            }
+
+            //upload new file
+            $file = $request->photo;
+            $filename = "Testimonial-" . time() . '.' . $file->getClientOriginalExtension();
+            $file->move($path, $filename);
+
+            //for update in table
+            // $employee->update(['file' => $filename]);
+            $testimonial->photo = $filename;
+        }
+
+        $update = $testimonial->save();
+        if ($update) {
+            return redirect()->route('testimonial.index')->with('success', 'Testimonial details updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'Errors Occurred !!!');
+        }
     }
 
     /**
@@ -78,8 +138,10 @@ class TestimonialController extends Controller
      * @param  \App\Models\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy($testimonial)
     {
-        //
+        $testimonial = Testimonial::find($testimonial);
+        $testimonial->delete();
+        return redirect()->route('testimonial.index')->with('warning', 'Deleted Successfully');
     }
 }

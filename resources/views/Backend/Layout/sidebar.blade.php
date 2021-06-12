@@ -108,8 +108,8 @@
         <div id="collapseInterest" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Interests Components:</h6>
-                <a class="collapse-item" href="">My Interests</a>
-                <a class="collapse-item" href="">Add Interest</a>
+                <a class="collapse-item" href="{{route('interest.index')}}">My Interests</a>
+                <a class="collapse-item" href="{{route('interest.create')}}">Add Interest</a>
             </div>
         </div>
     </li>
@@ -122,8 +122,8 @@
         <div id="collapseTestimonials" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Testimonials Components:</h6>
-                <a class="collapse-item" href="">My Testimonials</a>
-                <a class="collapse-item" href="">Add Testimonial</a>
+                <a class="collapse-item" href="{{route('testimonial.index')}}">My Testimonials</a>
+                <a class="collapse-item" href="{{route('testimonial.create')}}">Add Testimonial</a>
             </div>
         </div>
     </li>
@@ -147,7 +147,7 @@
         <div id="collapseSummary" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Summary Components:</h6>
-                <a class="collapse-item" href="">My Summary</a>
+                <a class="collapse-item" href="{{route('summary.create')}}">My Summary</a>
             </div>
         </div>
     </li>
@@ -162,8 +162,8 @@
         <div id="collapseEducations" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Educations Components:</h6>
-                <a class="collapse-item" href="">My Educations</a>
-                <a class="collapse-item" href="">All Educations</a>
+                <a class="collapse-item" href="{{route('education.index')}}">My Educations</a>
+                <a class="collapse-item" href="{{route('education.create')}}">Add Educations</a>
             </div>
         </div>
     </li>
@@ -177,8 +177,8 @@
         <div id="collapseExperiences" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Experiences Components:</h6>
-                <a class="collapse-item" href="">My Experiences</a>
-                <a class="collapse-item" href="">Add Experiences</a>
+                <a class="collapse-item" href="{{route('experience.index')}}">My Experiences</a>
+                <a class="collapse-item" href="{{route('experience.create')}}">Add Experiences</a>
             </div>
         </div>
     </li>
@@ -191,8 +191,8 @@
         <div id="collapseTrainings" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Trainings Components:</h6>
-                <a class="collapse-item" href="">My Trainings</a>
-                <a class="collapse-item" href="">Add Trainings</a>
+                <a class="collapse-item" href="{{route('training.index')}}">My Trainings</a>
+                <a class="collapse-item" href="{{route('training.create')}}">Add Trainings</a>
             </div>
         </div>
     </li>
@@ -216,7 +216,7 @@
         <div id="collapseHomePage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">HomePage Components:</h6>
-                <a class="collapse-item" href="{{route('home')}}">My HomePage</a>
+                <a class="collapse-item" href="{{route('home.create')}}">My HomePage</a>
             </div>
         </div>
     </li>
@@ -231,8 +231,8 @@
         <div id="collapseServices" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Services Components:</h6>
-                <a class="collapse-item" href="">My Services</a>
-                <a class="collapse-item" href="">Add Services</a>
+                <a class="collapse-item" href="{{route('service.index')}}">My Services</a>
+                <a class="collapse-item" href="{{route('service.create')}}">Add Services</a>
             </div>
         </div>
     </li>
@@ -246,8 +246,8 @@
         <div id="collapsePortfolio" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Portfolio Components:</h6>
-                <a class="collapse-item" href="">All Projects</a>
-                <a class="collapse-item" href="">Add Projects</a>
+                <a class="collapse-item" href="{{route('portfolio.index')}}">All Projects</a>
+                <a class="collapse-item" href="{{route('portfolio.index')}}">Add Projects</a>
             </div>
         </div>
     </li>
@@ -260,8 +260,8 @@
         <div id="collapseSocialAccount" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Social Components:</h6>
-                <a class="collapse-item" href="">My Social Accounts</a>
-                <a class="collapse-item" href="">Add Social Accounts</a>
+                <a class="collapse-item" href="{{route('socialaccount.index')}}">My Social Accounts</a>
+                <a class="collapse-item" href="{{route('socialaccount.create')}}">Add Social Accounts</a>
             </div>
         </div>
     </li>
@@ -274,7 +274,7 @@
         <div id="collapseFeedbacks" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Feedbacks Components:</h6>
-                <a class="collapse-item" href="">My Feedbacks</a>
+                <a class="collapse-item" href="{{route('feedback.index')}}">My Feedbacks</a>
             </div>
         </div>
     </li>
@@ -287,7 +287,7 @@
         <div id="collapseChangePassword" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Password Components:</h6>
-                <a class="collapse-item" href="">Change Password</a>
+                <a class="collapse-item" href="{{route('password.index')}}">Change Password</a>
             </div>
         </div>
     </li>

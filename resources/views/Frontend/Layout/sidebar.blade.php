@@ -12,12 +12,20 @@
 
         <div class="row">
             <div class="col-lg-4" data-aos="fade-right">
+                @if ($about == [])
                 <img src="Frontend/assets/img/u1.jpg" class="img-fluid" alt="">
+                @else
+                <img src="{{asset('Uploads/About/'.$about->photo)}}" class="img-fluid" alt="">
+                @endif
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                 <h3>Software Developer</h3>
                 <p class="fst-italic">
+                    @if ($about == [])
+                    <h6>Update here......</h6>
+                    @else
                     {{$about->short_description}}
+                    @endif
                 </p>
                 <div class="row">
                     <div class="col-lg-6">
@@ -45,7 +53,11 @@
                     </div>
                 </div>
                 <p>
+                    @if ($about == [])
+                    <h6>Update here......</h6>
+                    @else
                     {{$about->about}}
+                    @endif
                 </p>
             </div>
         </div>
@@ -103,8 +115,8 @@
         <div class="section-title">
             <h2>Skills</h2>
         </div>
+        @if ($skill != [])
         <div class="row skills-content">
-            @if ($skill != [])
             @foreach ($skill as $skills)
             <div class="progress col-md-4">
                 <span class="skill">{{$skills->skill_name}} <i class="val">{{$skills->ability}}%</i></span>
@@ -114,6 +126,8 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <h6>Update here......</h6>
             @endif
         </div>
     </div>
@@ -124,81 +138,26 @@
 
         <div class="section-title">
             <h2>Interests</h2>
-        </div> 09 
-
+        </div>
         <div class="row">
-            <div class="col-lg-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                    <h3>Lorem Ipsum</h3>
-                </div>
+            @if ($interest == [])
+            <div class="icon-box">
+                <i>
+                    <img src="{{asset('Frontend/assets/img/u1.jpg')}}" class="img-fluid" alt="Interest" width="50px">
+                </i>
+                <h6>Update here......</h6>
             </div>
-            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                <div class="icon-box">
-                    <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                    <h3>Dolor Sitema</h3>
-                </div>
+            @else
+            @foreach ($interest as $interest )
+            <div class="icon-box col-md-4">
+                <i>
+                    <img src="{{asset('Uploads/Interest/'.$interest->icon)}}" class="img-fluid" alt="Interest"
+                        width="50px">
+                </i>
+                <h3>{{$interest->interest_field}}</h3>
             </div>
-            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                <div class="icon-box">
-                    <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                    <h3>Sed perspiciatis</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-                <div class="icon-box">
-                    <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                    <h3>Magni Dolores</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                    <h3>Nemo Enim</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                    <h3>Eiusmod Tempor</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                    <h3>Midela Teren</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-                    <h3>Pira Neve</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-anchor-line" style="color: #b2904f;"></i>
-                    <h3>Dirada Pack</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-disc-line" style="color: #b20969;"></i>
-                    <h3>Moton Ideal</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-base-station-line" style="color: #ff5828;"></i>
-                    <h3>Verdo Park</h3>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                <div class="icon-box">
-                    <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-                    <h3>Flavor Nivelanda</h3>
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
 
     </div><!-- End Interests -->
@@ -212,80 +171,25 @@
 
         <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-
+                @if ($testimonial !=[])
+                @foreach ($testimonial as $test)
                 <div class="swiper-slide">
                     <div class="testimonial-item">
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                            Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                            {{$test->description}}
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </p>
-                        <img src="Frontend/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                        <h3>Saul Goodman</h3>
-                        <h4>Ceo &amp; Founder</h4>
+                        <img src="{{asset('Uploads/Testimonial/'.$test->photo)}}" class="testimonial-img" alt="">
+                        <h3>{{$test->name}}</h3>
+                        <h4>{{$test->designation}}</h4>
                     </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum
-                            eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim
-                            culpa.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="Frontend/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                        <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis
-                            minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="Frontend/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                        <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim
-                            velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum
-                            veniam.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="Frontend/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                        <h3>Matt Brandon</h3>
-                        <h4>Freelancer</h4>
-                    </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam
-                            enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore
-                            nisi cillum quid.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="Frontend/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                        <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
-                    </div>
-                </div><!-- End testimonial item -->
-
+                </div>
+                @endforeach
+                @else
+                <h6>Update here......</h6>
+                @endif
+                <!-- End testimonial item -->
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -309,72 +213,52 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <h3 class="resume-title">Sumary</h3>
+                {{-- summary --}}
+                @if ($summary !=[])
+                <h3 class="resume-title">Summary</h3>
                 <div class="resume-item pb-0">
-                    <h4>Alice Barkley</h4>
-                    <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and
-                            developing user-centered digital/print marketing material from initial concept to final,
-                            polished deliverable.</em></p>
+                    <h4>{{$summary->title}}</h4>
                     <p>
-                        <ul>
-                            <li>Portland par 127,Orlando, FL</li>
-                            <li>(123) 456-7891</li>
-                            <li>alice.barkley@example.com</li>
-                        </ul>
+                        {{$summary->summary}}
                     </p>
                 </div>
+                @else
+                <h6>Update here......</h6>
+                @endif
 
+                {{-- trainings --}}
+                <h3 class="resume-title">Trainings</h3>
+                @foreach ($training as $train )
+                <div class="resume-item">
+                    <h4>{{$train->training_title}}({{$train->duration}})</h4>
+                    <h5>{{$train->year}}</h5>
+                    <p><em>{{$train->trained_at}}</em></p>
+                </div>
+                @endforeach
+                {{-- education --}}
                 <h3 class="resume-title">Education</h3>
+                @foreach ($education as $educ )
                 <div class="resume-item">
-                    <h4>Master of Fine Arts &amp; Graphic Design</h4>
-                    <h5>2015 - 2016</h5>
-                    <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-                    <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero
-                        voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                    <h4>{{$educ->course}}</h4>
+                    <h5>{{$educ->year}}</h5>
+                    <p><em>{{$educ->institute}}</em></p>
+                    <p>{{$educ->description}}</p>
                 </div>
-                <div class="resume-item">
-                    <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-                    <h5>2010 - 2014</h5>
-                    <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione
-                        eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon
-                        sader mart dila</p>
-                </div>
+                @endforeach
             </div>
             <div class="col-lg-6">
+                {{-- experience --}}
                 <h3 class="resume-title">Professional Experience</h3>
+                @foreach ($experience as $exp)
                 <div class="resume-item">
-                    <h4>Senior graphic design specialist</h4>
-                    <h5>2019 - Present</h5>
-                    <p><em>Experion, New York, NY </em></p>
+                    <h4>{{$exp->title}}</h4>
+                    <h5>{{$exp->year}}</h5>
+                    <p><em>{{$exp->company}}, {{$exp->location}} </em></p>
                     <p>
-                        <ul>
-                            <li>Lead in the design, development, and implementation of the graphic, layout, and
-                                production communication materials</li>
-                            <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of
-                                the project. </li>
-                            <li>Supervise the assessment of all graphic materials in order to ensure quality and
-                                accuracy of the design</li>
-                            <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000
-                            </li>
-                        </ul>
+                        {{$exp->description}}
                     </p>
                 </div>
-                <div class="resume-item">
-                    <h4>Graphic design specialist</h4>
-                    <h5>2017 - 2018</h5>
-                    <p><em>Stepping Stone Advertising, New York, NY</em></p>
-                    <p>
-                        <ul>
-                            <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and
-                                advertisements).</li>
-                            <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                            <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                            <li>Created 4+ design presentations and proposals a month for clients and account managers
-                            </li>
-                        </ul>
-                    </p>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -391,54 +275,16 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            @foreach ($service as $service)
+            <div class="col-md-4 p-1">
                 <div class="icon-box">
-                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4><a href="">Lorem Ipsum</a></h4>
-                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                    <div class="icon"><i><img src="{{asset('Uploads/Services/'.$service->thumbnail)}}" alt=""
+                                width="65px"></i></div>
+                    <h4><a href="">{{$service->service_name}}</a></h4>
+                    <p>{{$service->description}}</p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-file"></i></div>
-                    <h4><a href="">Sed ut perspiciatis</a></h4>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-tachometer"></i></div>
-                    <h4><a href="">Magni Dolores</a></h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-world"></i></div>
-                    <h4><a href="">Nemo Enim</a></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-slideshow"></i></div>
-                    <h4><a href="">Dele cardo</a></h4>
-                    <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-arch"></i></div>
-                    <h4><a href="">Divera don</a></h4>
-                    <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
     </div>
@@ -458,167 +304,71 @@
                 <ul id="portfolio-flters">
                     <li data-filter="*" class="filter-active">All</li>
                     <li data-filter=".filter-app">App</li>
-                    <li data-filter=".filter-card">Card</li>
                     <li data-filter=".filter-web">Web</li>
+                    <li data-filter=".filter-card">Other</li>
                 </ul>
             </div>
         </div>
 
         <div class="row portfolio-container">
-
+            {{-- App --}}
+            @foreach ($app as $app)
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                    <img src="{{ asset('Uploads/Portfolio/'.$app->image) }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>App</p>
+                        <h4>{{$app->project_name}}</h4>
+                        <p>{{$app->category}}</p>
                         <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
+                            <a href="{{ asset('Uploads/Portfolio/'.$app->image) }}" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox" title="{{$app->project_name}}"><i class="bx bx-plus"></i></a>
+                            <a href="{{route('details',$app->id)}}" data-gallery="portfolioDetailsGallery"
                                 data-glightbox="type: external" class="portfolio-details-lightbox"
                                 title="Portfolio Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
+            @endforeach
+            {{-- web --}}
+            @foreach ($web as $web)
             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                 <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                    <img src="{{ asset('Uploads/Portfolio/'.$web->image) }}" class="img-fluid" alt="web projects">
                     <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
+                        <h4>{{$web->project_name}}</h4>
+                        <p>{{$web->category}}</p>
                         <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
+                            <a href="{{ asset('Uploads/Portfolio/'.$web->image) }}" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox" title="{{$web->project_name}}"><i class="bx bx-plus"></i></a>
+                            <a href="{{route('details',$web->id)}}" data-gallery="portfolioDetailsGallery"
                                 data-glightbox="type: external" class="portfolio-details-lightbox"
                                 title="Portfolio Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 2</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
+            {{-- card --}}
+            @foreach ($other as $other)
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                 <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                    <img src="{{ asset('Uploads/Portfolio/'.$other->image) }}" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
+                        <h4>{{$other->project_name}}</h4>
+                        <p>{{$other->category}}</p>
                         <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
+                            <a href="{{ asset('Uploads/Portfolio/'.$other->image) }}" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox" title="{{$other->project_name}}"><i
+                                    class="bx bx-plus"></i></a>
+                            <a href="{{route('details',$other->id)}}" data-gallery="portfolioDetailsGallery"
                                 data-glightbox="type: external" class="portfolio-details-lightbox"
                                 title="Portfolio Details"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 2</h4>
-                        <p>Web</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 3</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img src="Frontend/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <div class="portfolio-links">
-                            <a href="Frontend/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="{{route('details')}}" data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external" class="portfolio-details-lightbox"
-                                title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
     </div>
@@ -648,11 +398,11 @@
                     <i class="bx bx-share-alt"></i>
                     <h3>Social Profiles</h3>
                     <div class="social-links">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        @foreach ($socialaccount as $social)
+                        <a href="{{$social->url}}" target="_blank" class="p-1"><img
+                                src="{{asset('Uploads/SocialAccount/'.$social->icon)}}" alt="social icons"
+                                width="30px"></a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -673,7 +423,10 @@
             </div>
         </div>
 
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+        {{-- <form action="{{route('feedback.store')}}" method="post" role="" class="php-email-form mt-4"> --}}
+        <form class="user form form-control mt-4" method="post" action="{{route('feedback.store')}}"
+            enctype="multipart/form-data" style="background: #13456e;">
+            @csrf
             <div class="row">
                 <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -688,12 +441,7 @@
             <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
-            <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center mt-1"><button class="btn btn-success" type="submit">Send Message</button></div>
         </form>
 
     </div>

@@ -1,5 +1,5 @@
 @include('Frontend.Layout.head')
-@include('Frontend.Layout.footer')
+@section('title', 'Details')
 @yield('head')
 <main id="main">
 
@@ -10,23 +10,13 @@
             <div class="row">
 
                 <div class="col-lg-8">
-                    <h2 class="portfolio-title">This is an example of portfolio detail</h2>
+                    <h2 class="portfolio-title">{{$portfolio->project_name}}</h2>
 
                     <div class="portfolio-details-slider swiper-container">
                         <div class="swiper-wrapper align-items-center">
-
                             <div class="swiper-slide">
-                                <img src="Frontend/assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                                <img src="{{asset('Uploads/Portfolio/'.$portfolio->image)}}" alt="" width="300px">
                             </div>
-
-                            <div class="swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                            </div>
-
-                            <div class="swiper-slide">
-                                <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                            </div>
-
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -36,17 +26,15 @@
                 <div class="col-lg-4 portfolio-info">
                     <h3>Project information</h3>
                     <ul>
-                        <li><strong>Category</strong>: Web design</li>
-                        <li><strong>Client</strong>: ASU Company</li>
-                        <li><strong>Project date</strong>: 01 March, 2020</li>
-                        <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                        <li><strong>Category</strong>: {{$portfolio->category}}</li>
+                        <li><strong>Client</strong>: {{$portfolio->client}}</li>
+                        <li><strong>Project date</strong>: {{$portfolio->project_date}}</li>
+                        <li><strong>Project URL</strong>: <a href="{{$portfolio->project_url}}"
+                                target="_blank">{{$portfolio->project_url}}</a></li>
                     </ul>
 
                     <p>
-                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia
-                        quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim.
-                        Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla
-                        at esse enim cum deserunt eius.
+                        {{$portfolio->description}}
                     </p>
                 </div>
 
@@ -56,4 +44,3 @@
     </div><!-- End Portfolio Details -->
 
 </main><!-- End #main -->
-@yield('footer')

@@ -14,7 +14,8 @@ class EducationController extends Controller
      */
     public function index()
     {
-        //
+        $education = Education::orderBy('id', 'desc')->get();
+        return view('Backend.Education.view', compact('education'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EducationController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.Education.add');
     }
 
     /**
@@ -35,7 +36,24 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'course' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+            'institute' => 'required',
+        ]);
+        $education = new Education([
+            'course' => $request->course,
+            'institute' => $request->institute,
+            'year' => $request->year,
+            'description' => $request->description,
+        ]);
+        $data = $education->save();
+        if ($data) {
+            return redirect()->route('education.index')->with('success', 'Education details added successfully !!!');
+        } else {
+            return redirect()->back()->with('error', 'There occurred some problem , please try again after a while.');
+        }
     }
 
     /**
@@ -55,9 +73,10 @@ class EducationController extends Controller
      * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function edit(Education $education)
+    public function edit(Request $request, $id)
     {
-        //
+        $education = Education::findorfail($id);
+        return view('Backend.Education.edit', compact('education'));
     }
 
     /**
@@ -67,9 +86,25 @@ class EducationController extends Controller
      * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Education $education)
+    public function update(Request $request, $id)
     {
-        //
+        $education = Education::findOrFail($id);
+        $request->validate([
+            'course' => 'required',
+            'year' => 'required',
+            'description' => 'required',
+            'institute' => 'required',
+        ]);
+        $education->course = $request->course;
+        $education->description = $request->description;
+        $education->year = $request->year;
+        $education->institute = $request->institute;
+        $update = $education->save();
+        if ($update) {
+            return redirect()->route('education.index')->with('success', 'Education details updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'Errors Occurred !!!');
+        }
     }
 
     /**
@@ -78,8 +113,10 @@ class EducationController extends Controller
      * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Education $education)
+    public function destroy($education)
     {
-        //
+        $education = Education::find($education);
+        $education->delete();
+        return redirect()->route('education.index')->with('warning', 'Deleted Successfully');
     }
 }

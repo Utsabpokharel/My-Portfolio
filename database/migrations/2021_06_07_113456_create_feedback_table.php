@@ -19,7 +19,6 @@ class CreateFeedbackTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->longText('message');
-            $table->integer('user_id');
             $table->timestamps();
         });
     }

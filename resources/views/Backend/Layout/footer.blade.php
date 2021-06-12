@@ -81,8 +81,10 @@
     }
 });
 </script>
+
 @include('sweetalert::alert')
 </body>
 
 </html>
 @endsection
+@yield('imageJS')
