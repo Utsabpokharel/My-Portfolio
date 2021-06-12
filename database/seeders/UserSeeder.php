@@ -16,13 +16,13 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Utsab Pokharel',
-            'email' => 'admin@admin.com',
+            'email' => 'imutsabpokharel@gmail.com',
             'password' => bcrypt('admin@123'),
             'role' => '1',
             'status' => '1',
-            'contact' => '',
+            'contact' => '9862043408',
             'address' => '',
-            'gender' => '',
+            'gender' => 'Male',
             'degree' => '',
             'dob' => now(),
             'created_at' => now(),

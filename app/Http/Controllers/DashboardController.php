@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PasswordChange;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Feedback;
@@ -16,8 +17,11 @@ use App\Models\Training;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -35,6 +39,7 @@ class DashboardController extends Controller
         $social = SocialAccount::count();
         $education = Education::count();
         $role = Role::count();
+        $notify = DB::table('notifications')->get();
         return view('Backend.Admin.dashboard', compact(
             'user',
             'skill',
@@ -47,7 +52,8 @@ class DashboardController extends Controller
             'project',
             'social',
             'education',
-            'role'
+            'role',
+            'notify'
         ));
     }
     public function changepassword()
@@ -62,10 +68,15 @@ class DashboardController extends Controller
             'new_confirm_password' => ['same:new_password'],
         ]);
         User::find(Auth::user()->id)->update(['password' => Hash::make($request->new_password)]);
-
+        Mail::to(Auth::user()->email)->send(new PasswordChange);
         Auth::logout();
 
         return redirect()->route('login')->with('success', 'Your Password has been changed,Please Login again.');
         Auth::logoutOtherDevices(request('password'));
+    }
+    public function notifications()
+    {
+        $notify = DB::table('notifications')->get();
+        return view('Backend.Layout.master', compact('notify'));
     }
 }
