@@ -3,8 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Education;
+use App\Models\Experience;
 use App\Models\HomePage;
+use App\Models\Interest;
+use App\Models\Portfolio;
+use App\Models\Service;
 use App\Models\Skill;
+use App\Models\SocialAccount;
+use App\Models\Summary;
+use App\Models\Testimonial;
+use App\Models\Training;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +26,37 @@ class FrontendController extends Controller
         $about = About::first();
         $home = HomePage::first();
         $skill = Skill::all();
-        return view('Frontend.Layout.master', compact('user', 'about', 'home', 'skill'));
+        $interest = Interest::orderBy('id', 'desc')->get();
+        $testimonial = Testimonial::orderBy('id', 'desc')->get();
+        $summary = Summary::first();
+        $education = Education::orderBy('id', 'desc')->get();
+        $experience = Experience::all();
+        $training = Training::all();
+        $service = Service::all();
+        $socialaccount = SocialAccount::all();
+        $portfolio = Portfolio::all();
+        $app = Portfolio::where('category', 'App')->get();
+        $web = Portfolio::where('category', 'Web')->get();
+        $other = Portfolio::where('category', 'Others')->get();
+        // dd($app);
+        return view('Frontend.Layout.master', compact(
+            'user',
+            'about',
+            'home',
+            'skill',
+            'interest',
+            'testimonial',
+            'summary',
+            'education',
+            'experience',
+            'training',
+            'service',
+            'socialaccount',
+            'portfolio',
+            'app',
+            'web',
+            'other',
+        ));
     }
 
     public function login(Request $request)
@@ -37,6 +76,12 @@ class FrontendController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect()->route('home')->with('success', 'Logged Out !!!');
+    }
+
+    public function portfolioDetails($id)
+    {
+        $portfolio = Portfolio::findOrFail($id);
+        return view('Frontend.details', compact('portfolio'));
     }
 }

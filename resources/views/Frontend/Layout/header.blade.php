@@ -21,10 +21,10 @@
             </div>
             <!-- .navbar -->
             <div class="social-links">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                @foreach ($socialaccount as $social)
+                <a href="{{$social->url}}" target="_blank" class="p-1"><img
+                        src="{{asset('Uploads/SocialAccount/'.$social->icon)}}" alt="social icons" width="30px"></a>
+                @endforeach
             </div>
         </div>
         @if ($home != [])

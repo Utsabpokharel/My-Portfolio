@@ -65,10 +65,6 @@
                             @endif
 
                             <td>
-                                @if($users->email == 'super@admin.com')
-                                <button class="btn btn-success btn-sm" type="submit"><span
-                                        class="fa fa-eye"></span></button>
-                                @else
                                 <form action="{{route('user.edit',$users->id)}}" method="GET"
                                     style="display: inline-block">
                                     {{csrf_field()}}
@@ -83,7 +79,6 @@
                                     <button class="btn btn-danger btn-sm" type="submit"><span
                                             class="fa fa-trash"></span></button>
                                 </form>
-                                @endif
                             </td>
                         </tr>
                     </tbody>

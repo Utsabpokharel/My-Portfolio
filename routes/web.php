@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\SummaryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -24,10 +26,11 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/login', [FrontendController::class, 'login'])->name('login');
 //logout
 Route::get('/logout', [FrontendController::class, 'logout'])->name('logout');
-
-Route::get('/portfolio-details', function () {
-    return view('Frontend.details');
-})->name('details');
+//portfolio-details
+Route::get('/portfolio-details/{id}', [FrontendController::class, 'portfolioDetails'])->name('details');
+//feedback
+Route::get('/contact', [FeedbackController::class, 'index'])->name('feedback.index');
+Route::post('/contact/store', [FeedbackController::class, 'store'])->name('feedback.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     //dashboard
@@ -47,10 +50,34 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/about/edit/{id}', [AboutController::class, 'edit'])->name('about.edit');
     Route::put('/about/update/{id}', [AboutController::class, 'update'])->name('about.update');
     //homepage
-    Route::get('/home', [HomePageController::class, 'create'])->name('home');
+    Route::get('/home', [HomePageController::class, 'create'])->name('home.create');
     Route::post('/home/store', [HomePageController::class, 'store'])->name('home.store');
     Route::get('/home/edit/{id}', [HomePageController::class, 'edit'])->name('home.edit');
     Route::put('/home/update/{id}', [HomePageController::class, 'update'])->name('home.update');
     //Skills
     Route::resource('skill', SkillController::class);
+    //Interests
+    Route::resource('interest', InterestController::class);
+    //testimonial
+    Route::resource('testimonial', TestimonialController::class);
+    //summary
+    Route::get('/summary', [SummaryController::class, 'create'])->name('summary.create');
+    Route::post('/summary/store', [SummaryController::class, 'store'])->name('summary.store');
+    Route::get('/summary/edit/{id}', [SummaryController::class, 'edit'])->name('summary.edit');
+    Route::put('/summary/update/{id}', [SummaryController::class, 'update'])->name('summary.update');
+    //education
+    Route::resource('education', EducationController::class);
+    //experiences
+    Route::resource('experience', ExperienceController::class);
+    //trainings
+    Route::resource('training', TrainingController::class);
+    //services
+    Route::resource('service', ServiceController::class);
+    //social accounts
+    Route::resource('socialaccount', SocialAccountController::class);
+    //portfolio
+    Route::resource('portfolio', PortfolioController::class);
+    //change password
+    Route::get('/password', [DashboardController::class, 'changepassword'])->name('password.index');
+    Route::put('/change-Password', [DashboardController::class, 'password_update'])->name('password.update');
 });

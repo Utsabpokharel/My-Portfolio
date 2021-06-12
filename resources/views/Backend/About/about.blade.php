@@ -52,8 +52,10 @@
                         </label>
                         <div class="col-md-6">
                             <input type="file" name="photo" required placeholder="Enter photo" accept="image/*"
-                                id="exampleInputUser" class="form-control   @error('photo') is-invalid @enderror"
-                                value="{{old('photo','')}}" />
+                                id="image-file" class="form-control   @error('photo') is-invalid @enderror"
+                                onchange="readURL(this);" value="{{old('photo','')}}" />
+                            <img src="{{asset('Backend/img/undraw_profile.svg')}}" alt="image" id="image-preview"
+                                width="150px">
                             @error('photo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}}</strong>
@@ -154,9 +156,11 @@
                             <span class="required text-danger"> * </span>
                         </label>
                         <div class="col-md-6">
-                            <input type="file" name="photo" placeholder="Enter photo" accept="image/*"
-                                id="exampleInputUser" class="form-control   @error('photo') is-invalid @enderror"
+                            <input type="file" name="photo" placeholder="Enter photo" accept="image/*" id="image-file"
+                                class="form-control   @error('photo') is-invalid @enderror" onchange="readURL(this);"
                                 value="{{old('photo',$abt->photo)}}" />
+                            <img src="{{asset('Uploads/About/'.$abt->photo)}}" alt="image" id="image-preview"
+                                width="150px">
                             @error('photo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}}</strong>
@@ -229,4 +233,21 @@
     @endif
 </div>
 
+@endsection
+@section('imageJS')
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image-preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#image-file").change(function(){
+        readURL(this);
+    });
+</script>
 @endsection
