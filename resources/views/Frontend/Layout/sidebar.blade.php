@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Birthday :</strong>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Birth Date :</strong>
                                 <span>{{$user->dob}}</span>
                             </li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
@@ -81,8 +81,8 @@
             <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                 <div class="count-box">
                     <i class="bi bi-journal-richtext"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                        class="purecounter"></span>
+                    <span data-purecounter-start="0" data-purecounter-end="{{$project_count}}"
+                        data-purecounter-duration="1" class="purecounter"></span>
                     <p>Projects</p>
                 </div>
             </div>

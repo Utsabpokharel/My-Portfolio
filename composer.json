@@ -13,7 +13,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "realrashid/sweet-alert": "^3.2"
+        "realrashid/sweet-alert": "^3.2",
+        "spatie/laravel-backup": "^7.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -55,7 +56,11 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-pcntl": "7.3",
+            "ext-posix": "7.3"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
