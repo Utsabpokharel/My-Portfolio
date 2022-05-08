@@ -113,7 +113,7 @@ class PortfolioController extends Controller
         $portfolio->project_date = $request->project_date;
         $portfolio->client = $request->client;
         if ($request->image != '') {
-            $path = public_path() . '/Uploads/portfolios/';
+            $path = public_path() . '/Uploads/Portfolio/';
 
             //code for remove old file
             if ($portfolio->image != ''  && $portfolio->image != null) {

@@ -19,7 +19,7 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'about' => 'required|min:10 |max:100',
+            'about' => 'required|min:10',
             'short_description' => 'required',
             'profession' => 'required',
             'photo' => 'required',
@@ -57,7 +57,7 @@ class AboutController extends Controller
     {
         $about = About::findOrFail($id);
         $request->validate([
-            'about' => 'required|min:10 |max:100',
+            'about' => 'required|min:10',
             'short_description' => 'required',
             'profession' => 'required',
             'freelancing' => 'required',
