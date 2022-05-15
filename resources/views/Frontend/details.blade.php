@@ -29,8 +29,13 @@
                         <li><strong>Category</strong>: {{$portfolio->category}}</li>
                         <li><strong>Client</strong>: {{$portfolio->client}}</li>
                         <li><strong>Project date</strong>: {{$portfolio->project_date}}</li>
+                        @if ($portfolio->project_url !=[])
                         <li><strong>Project URL</strong>: <a href="{{$portfolio->project_url}}"
-                                target="_blank">{{$portfolio->project_url}}</a></li>
+                                target="_blank">{{$portfolio->project_url}}</a>
+                        </li>
+                        @else
+                        <li><strong>Project URL</strong>: N/A</li>
+                        @endif
                     </ul>
 
                     <p>
